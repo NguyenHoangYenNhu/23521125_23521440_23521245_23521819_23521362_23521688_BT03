@@ -1,49 +1,34 @@
 #include <iostream>
+#include <cmath>
+
 using namespace std;
 
-int DemSoChan(float[], int);
-int DemSoLe(float[], int);
-int TuongQuan(float[], int);
+void Nhap(float[], int&);
+float Dem(float[], int);
+
 
 int main()
 {
-	float a[100];
 	int n;
+	float a[500];
+	Nhap(a, n);
+	cout << "Nho nhat la: " << Dem(a, n);
+	return 0;
+}
+void Nhap(float a[], int& n)
+{
 	cout << "Nhap n: ";
 	cin >> n;
+	cout << "Nhap mang: ";
 	for (int i = 0; i < n; i++)
-	{
-		cout << "a[" << i << "]:";
 		cin >> a[i];
-	}
-	TuongQuan(a, n);
-	return 0;
-}
-int DemSoChan(float a[], int n)
-{
-	int dem = 0;
-	for (int i = 0; i <= n; i++)
-		if (a[i] % 2 == 0)
-			dem++;
-	return dem;
 }
 
-int DemSoLe(float a[], int n)
+float Dem(float a[], int n)
 {
-	int dem = 0;
-	for (int i = 0; i <= n; i++)
-		if (a[i] % 2 != 0)
-			dem++;
-	return dem;
-}
-
-int TuongQuan(int a[], int n)
-{
-	int x = DemSoChan(a, n);
-	int y = DemSoLe(a, n);
-	if (x > y)
-		cout << "So luong so chan nhieu hon ";
-	if (x < y)
-		cout << "So luong so le nhieu hon";
-	return 0;
+	float nn = a[0];
+	for (int i = 0; i < n; i++)
+		if (nn > a[i])
+			nn = a[i];
+	return nn;
 }
