@@ -1,39 +1,31 @@
 #include <iostream>
-#include <cmath>
-
+#include <iomanip>
 using namespace std;
-
 void Nhap(float[], int&);
-float Dem(float[], int);
+void Xuat(float[], int);
 
 int main()
 {
-	int n;
 	float a[500];
+	int n;
 	Nhap(a, n);
-	cout << "s= " << Dem(a, n);
+	Xuat(a, n);
 	return 0;
 }
+
 void Nhap(float a[], int& n)
 {
 	cout << "Nhap n: ";
 	cin >> n;
-	cout << "Nhap mang: ";
-	for (int i = 0; i < n; i++)
-		cin >> a[i];
+	srand(time(NULL));
+	for (int i = 0; i <= (n - 1); i++)
+		a[i] = -100.0 + (rand() / (RAND_MAX / (100.0 - (-100.0))));
 }
 
-float Dem(float a[], int n)
+void Xuat(float a[], int n)
 {
-	float s = 0;
-	if (n == 1)
-		s += a[0];
-	for (int i = 0; i < n; i++)
-		if (a[i] < a[i + 1] && a[i] < a[i - 1])
-			s = s + a[i];
-	if (a[0] < a[1])
-		s = s + a[0];
-	if (a[n - 1] < a[n - 2])
-		s = s + a[n - 1];
-	return s;
+	cout << n << endl;
+	for (int i = 0; i <= n - 1; i++)
+		cout << setw(10) << fixed << setprecision(5) << a[i];
+
 }

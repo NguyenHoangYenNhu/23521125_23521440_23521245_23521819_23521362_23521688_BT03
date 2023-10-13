@@ -19,9 +19,12 @@ void Nhap(float a[], int& n)
 {
 	cout << "Nhap n: ";
 	cin >> n;
-	cout << "Nhap mang: ";
+	cout << "Nhap mang:\n";
 	for (int i = 0; i < n; i++)
+	{
+		cout << "A[" << i << "] = ";
 		cin >> a[i];
+	}
 }
 
 float Dem(float a[], int n)

@@ -1,18 +1,24 @@
 #include <iostream>
-#include <cstdlib>
+#include <cmath>
 #include <iomanip>
 using namespace std;
 
 void Nhap(int[], int&);
-bool KtDoiXung(int);
-void TongDoiXung(int[], int n);
+void Xuat(int[], int);
+bool ktDoiXung(int);
+int TongDoiXung(int[], int);
 
 int main()
 {
-	int a[100];
-	int n;
-	Nhap(a, n);
-	TongDoiXung(a, n);
+	int b[100];
+	int k;
+	Nhap(b, k);
+
+	cout << "\nMang ban dau: ";
+	Xuat(b, k);
+
+	cout << "\nTong cac gia tri thoa dieu kien: " << TongDoiXung(b, k);
+	cout << "\n\n\nKet thuc!!!";
 	return 0;
 }
 
@@ -21,14 +27,17 @@ void Nhap(int a[], int& n)
 	cout << "Nhap n: ";
 	cin >> n;
 	srand(time(NULL));
-	cout << "Nhap mang: \n";
-	for (int i = 0; i < n; i++)
-	{
-		cout << "Nhap a[" << i << "]=";
-		cin >> a[i];
-	}
+	for (int i = 0; i <= n - 1; i++)
+		a[i] = rand() % (200 + 1) - 100;
 }
-bool KtDoiXung(int n)
+
+void Xuat(int a[], int n)
+{
+	for (int i = 0; i <= n - 1; i++)
+		cout << setw(10) << a[i];
+}
+
+bool ktDoiXung(int n)
 {
 	int t = abs(n);
 	int dn = 0;
@@ -41,11 +50,12 @@ bool KtDoiXung(int n)
 		return true;
 	return false;
 }
-void TongDoiXung(int a[], int n)
+
+int TongDoiXung(int a[], int n)
 {
 	int s = 0;
 	for (int i = 0; i < n; i++)
-		if (KtDoiXung(a[i]))
+		if (ktDoiXung(a[i]))
 			s += a[i];
-	cout << "Tong cac phan tu doi xung: " << s;
+	return s;
 }
