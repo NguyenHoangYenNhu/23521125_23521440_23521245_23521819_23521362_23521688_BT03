@@ -3,6 +3,7 @@
 using namespace std;
 
 void Nhap(float[], int&);
+void Xuat(float [], int);
 void Xuat(float[], int);
 void LietKe(float[], int, int, int);
 
