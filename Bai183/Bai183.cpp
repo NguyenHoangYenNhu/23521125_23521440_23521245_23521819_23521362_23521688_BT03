@@ -4,12 +4,12 @@ using namespace std;
 
 void Nhap(int[], int&);
 void Xuat(int[], int);
-int ktCon(int [], int , int [], int );
+int ktCon(int[], int, int[], int);
 
 int main()
 {
 	int b[100];
-	int k,l;
+	int k, l;
 	Nhap(b, k);
 
 	cout << "\nMang a: ";
@@ -22,7 +22,7 @@ int main()
 	cout << "\nMang b: ";
 	Xuat(c, l);
 
-	if (ktCon(b,k,c,l) == 1)
+	if (ktCon(b, k, c, l) == 1)
 		cout << "\nMang b la mang con cua mang a";
 	else
 		cout << "\nMang b khong la mang con";
@@ -50,7 +50,7 @@ int ktCon(int a[], int n, int b[], int m)
 	if (n > m)
 		return 0;
 	int flag = 0;
-	for (int vt = 0; vt<=m-n;vt++)
+	for (int vt = 0; vt <= m - n; vt++)
 	{
 		int co = 1;
 		for (int i = 0; i < n; i++)

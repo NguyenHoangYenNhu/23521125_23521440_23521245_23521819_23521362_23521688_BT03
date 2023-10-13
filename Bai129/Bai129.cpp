@@ -54,4 +54,3 @@ int KiemTraSong(int a[], int n)
 			flag = 0;
 	return flag;
 }
-

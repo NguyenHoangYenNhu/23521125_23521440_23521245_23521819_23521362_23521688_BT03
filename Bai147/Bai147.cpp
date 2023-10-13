@@ -47,8 +47,8 @@ void Xuat(int a[], int n)
 
 void Tron(int a[], int n, int b[], int m, int c[], int& p)
 {
-	int i = n-1;
-	int j = m-1;
+	int i = n - 1;
+	int j = m - 1;
 	p = 0;
 	while (i >= 0 || j >= 0)
 	{

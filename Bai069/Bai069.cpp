@@ -47,7 +47,7 @@ int TanSuat(int a[], int n, int x)
 	return dem;
 }
 
-void LietKe(int a[], int n )
+void LietKe(int a[], int n)
 {
 	for (int i = 0; i < n; i++)
 	{

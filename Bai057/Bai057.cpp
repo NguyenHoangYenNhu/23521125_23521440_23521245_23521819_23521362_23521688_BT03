@@ -43,11 +43,11 @@ void XuatTuongQuan(int a[], int n)
 {
 	if (TuongQuanChanLe(a, n) == -1)
 		cout << "So luong so chan nhieu hon so luong so le";
-	else 
-		if (TuongQuanChanLe(a,n) == 1)
-			cout << "So luong so chan it hon so luong so le";
 	else
-		cout << "So luong so chan bang so luong so le";
+		if (TuongQuanChanLe(a, n) == 1)
+			cout << "So luong so chan it hon so luong so le";
+		else
+			cout << "So luong so chan bang so luong so le";
 }
 
 int DemChan(int a[], int n)

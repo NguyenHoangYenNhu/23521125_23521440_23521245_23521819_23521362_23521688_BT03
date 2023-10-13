@@ -41,7 +41,7 @@ void Hoanvi(float a, float b)
 bool ktHoanThien(int k)
 {
 	int s = 0;
-	for (int i = 1;i < k;i++)
+	for (int i = 1; i < k; i++)
 		if (k % i == 0)
 			s = s + i;
 	if (s == k)
@@ -51,8 +51,8 @@ bool ktHoanThien(int k)
 
 void HoanThienGiam(int a[], int n)
 {
-	for (int i = 0; i <= n - 2;i++)
-		for (int j = i + 1;j <= n - 1;j++)
+	for (int i = 0; i <= n - 2; i++)
+		for (int j = i + 1; j <= n - 1; j++)
 			if (ktHoanThien(a[i]) && ktHoanThien(a[j]) && a[i] < a[j])
 				swap(a[i], a[j]);
 }

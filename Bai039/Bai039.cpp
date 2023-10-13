@@ -12,7 +12,7 @@ int main()
 	int a[500], n;
 	cout << "\nNhap mang mot chieu: ";
 	Nhap(a, n);
-	
+
 
 	cout << "\nXuat mang mot chieu: ";
 	Xuat(a, n);
