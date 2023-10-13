@@ -3,9 +3,9 @@
 using namespace std;
 
 void Nhap(int[], int&);
-bool ktHoanThien(int);
-int DemHoanThien(int[], int);
 void Xuat(int[], int);
+int TimGiaTri(int[], int);
+int ChuSoDau(int);
 
 int main()
 {
@@ -16,7 +16,10 @@ int main()
 	cout << "\nMang ban dau: ";
 	Xuat(b, k);
 
-	cout << "\nSo luong gia tri thoa dieu kien: " << DemHoanThien(b, k);
+	if (TimGiaTri(b, k) != 0)
+		cout << "\nGia tri dau tien co chu so dau tien la so le la: " << TimGiaTri(b, k);
+	else
+		cout << "\nKhong ton tai gia tri co chu so dau tien la so le.";
 	cout << "\n\n\nKet thuc!!!";
 	return 0;
 }
@@ -36,22 +39,18 @@ void Xuat(int a[], int n)
 		cout << setw(10) << a[i];
 }
 
-bool ktHoanThien(int k)
+int ChuSoDau(int n)
 {
-	int s = 0;
-	for (int i = 1; i < k; i++)
-		if (k % i == 0)
-			s = s + i;
-	if (s == k)
-		return true;
-	return false;
+	int t = abs(n);
+	while (t >= 10)
+		t /= 10;
+	return t;
 }
 
-int DemHoanThien(int a[], int n)
+int TimGiaTri(int a[], int n)
 {
-	int dem = 0;
-	for (int i = 0; i <= n - 1; i++)
-		if (ktHoanThien(a[i]))
-			dem++;
-	return dem;
+	for (int i = 0; i < n; i++)
+		if (ChuSoDau(a[i]) & 1)
+			return a[i];
+	return 0;
 }

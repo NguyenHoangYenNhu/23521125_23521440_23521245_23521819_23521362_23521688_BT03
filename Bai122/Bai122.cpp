@@ -3,9 +3,8 @@
 using namespace std;
 
 void Nhap(int[], int&);
-bool ktHoanThien(int);
-int DemHoanThien(int[], int);
 void Xuat(int[], int);
+int ktToanChan(int[], int);
 
 int main()
 {
@@ -16,7 +15,10 @@ int main()
 	cout << "\nMang ban dau: ";
 	Xuat(b, k);
 
-	cout << "\nSo luong gia tri thoa dieu kien: " << DemHoanThien(b, k);
+	if (ktToanChan(b, k))
+		cout << "Mang chua toan gia tri chan";
+	else
+		cout << "Mang co ton tai gia tri le";
 	cout << "\n\n\nKet thuc!!!";
 	return 0;
 }
@@ -36,22 +38,11 @@ void Xuat(int a[], int n)
 		cout << setw(10) << a[i];
 }
 
-bool ktHoanThien(int k)
+int ktToanChan(int a[], int n)
 {
-	int s = 0;
-	for (int i = 1; i < k; i++)
-		if (k % i == 0)
-			s = s + i;
-	if (s == k)
-		return true;
-	return false;
-}
-
-int DemHoanThien(int a[], int n)
-{
-	int dem = 0;
-	for (int i = 0; i <= n - 1; i++)
-		if (ktHoanThien(a[i]))
-			dem++;
-	return dem;
+	int flag = 1;
+	for (int i = 0; i <= n; i++)
+		if (a[i] % 2 != 0)
+			flag = 0;
+	return flag;
 }

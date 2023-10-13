@@ -3,9 +3,9 @@
 using namespace std;
 
 void Nhap(int[], int&);
-bool ktHoanThien(int);
-int DemHoanThien(int[], int);
 void Xuat(int[], int);
+int TanSuat(int[], int, int);
+void LietKe(int[], int);
 
 int main()
 {
@@ -16,7 +16,7 @@ int main()
 	cout << "\nMang ban dau: ";
 	Xuat(b, k);
 
-	cout << "\nSo luong gia tri thoa dieu kien: " << DemHoanThien(b, k);
+	LietKe(b, k);
 	cout << "\n\n\nKet thuc!!!";
 	return 0;
 }
@@ -36,22 +36,28 @@ void Xuat(int a[], int n)
 		cout << setw(10) << a[i];
 }
 
-bool ktHoanThien(int k)
-{
-	int s = 0;
-	for (int i = 1; i < k; i++)
-		if (k % i == 0)
-			s = s + i;
-	if (s == k)
-		return true;
-	return false;
-}
-
-int DemHoanThien(int a[], int n)
+int TanSuat(int a[], int n, int x)
 {
 	int dem = 0;
 	for (int i = 0; i <= n - 1; i++)
-		if (ktHoanThien(a[i]))
+		if (a[i] == x)
 			dem++;
 	return dem;
+}
+
+void LietKe(int a[], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		int flag = 1;
+		for (int j = 0; j <= i - 1; j++)
+			if (a[j] == a[i])
+				flag = 0;
+		if (flag == 1)
+		{
+			int dem = TanSuat(a, n, a[i]);
+			cout << "\nSo lan xuat hien cua gia tri :" << a[i] << ": ";
+			cout << "(" << dem << ")";
+		}
+	}
 }

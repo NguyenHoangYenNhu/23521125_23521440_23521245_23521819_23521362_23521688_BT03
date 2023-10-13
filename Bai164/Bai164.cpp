@@ -3,8 +3,9 @@
 using namespace std;
 
 void Nhap(int[], int&);
-bool ktHoanThien(int);
-int DemHoanThien(int[], int);
+void XoaViTri(int[], int&, int);
+bool ktNguyenTo(int);
+void XoaNguyenTo(int[], int&);
 void Xuat(int[], int);
 
 int main()
@@ -13,10 +14,12 @@ int main()
 	int k;
 	Nhap(b, k);
 
-	cout << "\nMang ban dau: ";
+	cout << "\nMang ban dau: " << endl;
 	Xuat(b, k);
 
-	cout << "\nSo luong gia tri thoa dieu kien: " << DemHoanThien(b, k);
+	XoaNguyenTo(b, k);
+	cout << "\nMang sau xu ly: " << endl;
+	Xuat(b, k);
 	cout << "\n\n\nKet thuc!!!";
 	return 0;
 }
@@ -36,22 +39,28 @@ void Xuat(int a[], int n)
 		cout << setw(10) << a[i];
 }
 
-bool ktHoanThien(int k)
+void XoaViTri(int a[], int& n, int k)
 {
-	int s = 0;
-	for (int i = 1; i < k; i++)
+	for (int i = k; i <= n - 2; i++)
+		a[i] = a[i + 1];
+	n--;
+}
+
+bool ktNguyenTo(int k)
+{
+	int dem = 0;
+	for (int i = 1; i <= k; i++)
 		if (k % i == 0)
-			s = s + i;
-	if (s == k)
+			dem++;
+	if (dem == 2)
 		return true;
 	return false;
 }
 
-int DemHoanThien(int a[], int n)
+
+void XoaNguyenTo(int a[], int& n)
 {
-	int dem = 0;
-	for (int i = 0; i <= n - 1; i++)
-		if (ktHoanThien(a[i]))
-			dem++;
-	return dem;
+	for (int i = n - 1; i >= 0; i--)
+		if (ktNguyenTo(a[i]))
+			XoaViTri(a, n, i);
 }
