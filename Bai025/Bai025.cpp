@@ -3,49 +3,49 @@
 #include<iomanip>
 using namespace std;
 
-void nhap(float[], int&);
-void xuat(float[], int);
-void lietke(float[], int);
+void Nhap(float[], int&);
+void Xuat(float[], int);
+void LietKe(float[], int);
 
 int main()
 {
-	float a[500];
-	int n;
-	nhap(a, n);
-	cout << "Mang ban dau la: ";
-	xuat(a, n);
-	cout << "Ket qua la: ";
-	lietke(a, n);
+	float b[100];
+	int k;
+	Nhap(b, k);
+
+	cout << "\nMang ban dau: ";
+	Xuat(b, k);
+
+	LietKe(b, k);
+	cout << "\n\n\nKet thuc!!!";
 	return 0;
 }
 
-void nhap(float a[], int& n)
+void Nhap(float a[], int& n)
 {
 	cout << "Nhap n: ";
 	cin >> n;
-	for (int i = 0; i < n; i++)
-	{
-		cout << "Nhap a[" << i << "]=";
-		cin >> a[i];
-	}
+	srand(time(NULL));
+	for (int i = 0; i <= (n - 1); i++)
+		a[i] = -100 + rand() / ((float)RAND_MAX / 200);
 }
 
-void xuat(float a[], int n)
+void Xuat(float a[], int n)
 {
-	for (int i = 0; i < n; i++)
-		cout << fixed << setprecision(2) << setw(8) << a[i];
-	cout << endl;
+	for (int i = 0; i <= n - 1; i++)
+		cout << fixed << setw(10) << setprecision(3) << a[i];
 }
 
-void lietke(float a[], int n)
+void LietKe(float a[], int n)
 {
+	cout << "\nCac gia tri thoa dieu kien:";
 	if (n == 1)
 		return;
 	if (a[0] > a[1])
-		cout << a[0] << " ";
+		cout << fixed << setw(10) << setprecision(3) << a[0];
 	for (int i = 1; i <= n - 2; i++)
 		if (a[i] > a[i - 1] && a[i] > a[i + 1])
-			cout << a[i] << " ";
+			cout << fixed << setw(10) << setprecision(3) << a[i];
 	if (a[n - 2] < a[n - 1])
-		cout << a[n - 1] << " ";
+		cout << fixed << setw(10) << setprecision(3) << a[n - 1];
 }
