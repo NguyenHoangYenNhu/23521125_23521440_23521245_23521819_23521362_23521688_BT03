@@ -1,11 +1,10 @@
-#include<iostream>
-#include<iomanip>
-#include<cmath>
+#include <iostream>
+#include <iomanip>
 using namespace std;
 
 void Nhap(int[], int&);
-void DuaVeDau(int[], int);
 void Xuat(int[], int);
+void TimCon(int[], int, int);
 
 int main()
 {
@@ -13,12 +12,14 @@ int main()
 	int k;
 	Nhap(b, k);
 
-	cout << "\nMang ban dau: ";
+	cout << "\nXuat mang mot chieu: " << endl;
 	Xuat(b, k);
 
-	DuaVeDau(b, k);
-	cout << "\nMang luc sau:";
-	Xuat(b, k);
+	for (int i = 1; i <= k - 1; i++)
+	{
+		cout << "\nMang con co do dai " << i << " :" << endl;
+		TimCon(b, k, i);
+	}
 	cout << "\n\n\nKet thuc!!!";
 	return 0;
 }
@@ -38,13 +39,16 @@ void Xuat(int a[], int n)
 		cout << setw(10) << a[i];
 }
 
-void DuaVeDau(int a[], int n)
+void TimCon(int a[], int n, int i)
 {
-	int vt = 0;
-	for (int i = 0;i < n;i++)
-		if (a[i] % 3 == 0)
+	for (int j = 0; j <= n - i; j++)
+	{
+		int vt = 0;
+		while (vt < i)
 		{
-			swap(a[i], a[vt]);
+			cout << setw(10) << a[j + vt];
 			vt++;
 		}
+		cout << endl;
+	}
 }
