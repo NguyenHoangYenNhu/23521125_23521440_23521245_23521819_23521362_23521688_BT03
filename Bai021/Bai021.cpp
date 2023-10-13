@@ -35,7 +35,7 @@ void Xuat(float a[], int n)
 		cout << fixed << setw(10) << setprecision(3) << a[i];
 }
 
-void LietKe(float a[],int n)
+void LietKe(float a[], int n)
 {
 	cout << "\nCac gia tri thoa dieu kien:";
 	for (int i = 0; i <= n - 2; i++)
