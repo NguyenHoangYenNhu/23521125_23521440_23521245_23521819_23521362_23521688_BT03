@@ -20,7 +20,7 @@ int main()
 	return 0;
 }
 
-void Nhap(string filename , int a[], int& n)
+void Nhap(string filename, int a[], int& n)
 {
 	ifstream fi(filename);
 	fi >> n;

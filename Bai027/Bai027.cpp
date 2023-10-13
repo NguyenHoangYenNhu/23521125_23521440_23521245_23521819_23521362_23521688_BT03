@@ -5,7 +5,7 @@ using namespace std;
 
 void Nhap(float[], int&);
 void Xuat(float[], int);
-float AmDau(float [], int);
+float AmDau(float[], int);
 void LietKe(float[], int);
 
 int main()
@@ -47,7 +47,7 @@ float AmDau(float a[], int n)
 
 void LietKe(float a[], int n)
 {
-	
+
 	float ad = AmDau(a, n);
 	if (ad == 0)
 	{
